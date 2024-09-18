@@ -1,11 +1,13 @@
 import { Outlet, Link } from "react-router-dom";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const Layout = () => {
   return (
     <>
-      
-
-      <Outlet />
+      <Navigation/>
+     <div style={{minHeight:"95vh"}}><Outlet /></div> 
+      <Footer/>
     </>
   )
 };
