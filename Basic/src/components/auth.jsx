@@ -1,8 +1,7 @@
 // auth.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import shoppingListReducer from './shoppingListSlice';
-
+import { firebaseReducer } from './firebaseReducer'; // Import firebaseReducer
 
 const Auth = () => {
   const auth = useSelector((state) => state.firebase.auth);

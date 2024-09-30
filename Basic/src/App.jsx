@@ -13,7 +13,7 @@ import ShareList from './components/ShareList';
 function App() {
   return (
     <Provider store={store}>
-      <div className="App" style={{backgroundColor:"#48cbff"}}>
+      <div className="App" style={{ backgroundColor: "#48cbff" }}>
         <h1>Shopping List App</h1>
         <Auth />
         <main>
