@@ -1,13 +1,17 @@
 // components/ShoppingList.js
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { addItem, removeItem, updateItem } from '../components/shoppingListSlice';
 
 const ShoppingList = () => {
   const items = useSelector((state) => state.shoppingList.items);
   const dispatch = useDispatch();
+  const [itemName, setItemName] = useState('');
 
-  const handleAddItem = (item) => {
-    dispatch(addItem(item));
+  const handleAddItem = (event) => {
+    event.preventDefault();
+    dispatch(addItem({ name: itemName, id: Date.now() }));
+    setItemName('');
   };
 
   const handleRemoveItem = (id) => {
@@ -30,8 +34,14 @@ const ShoppingList = () => {
           </li>
         ))}
       </ul>
-      <form onSubmit={(e) => handleAddItem({ name: e.target.name.value, id: Date.now() })}>
-        <input type="text" name="name" placeholder="Add item" />
+      <form onSubmit={handleAddItem}>
+        <input
+          type="text"
+          name="name"
+          value={itemName}
+          placeholder="Add item"
+          onChange={(event) => setItemName(event.target.value)}
+        />
         <button type="submit">Add</button>
       </form>
     </div>
