@@ -1,22 +1,32 @@
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Blogs from "./pages/Blogs";
-import Contact from "./pages/Contact";
-import NoPage from "./Pages/NoPage";
 
-export default function App() {
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './features/store';
+import ShoppingList from './components/ShoppingList';
+import ItemDetails from './components/ItemDetails';
+import Categories from './components/Categories';
+import Search from './components/Search';
+import SortingFiltering from './components/SortingFiltering';
+import MultipleLists from './components/MultipleLists';
+import ShareList from './components/ShareList';
+import Auth from './components/Auth';
+
+function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <div className="App">
+        <h1>Shopping List App</h1>
+        <Auth />
+        <ShoppingList />
+        <ItemDetails />
+        <Categories />
+        <Search />
+        <SortingFiltering />
+        <MultipleLists />
+        <ShareList />
+      </div>
+    </Provider>
   );
 }
+
+export default App;
