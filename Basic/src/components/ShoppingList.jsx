@@ -1,7 +1,6 @@
 // components/ShoppingList.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItem, removeItem, updateItem } from './features/shoppingListSlice';
 
 const ShoppingList = () => {
   const items = useSelector((state) => state.shoppingList.items);

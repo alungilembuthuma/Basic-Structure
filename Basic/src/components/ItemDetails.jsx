@@ -1,7 +1,6 @@
 // components/ItemDetails.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateItem } from './features/shoppingListSlice';
 
 const ItemDetails = ({ id }) => {
   const item = useSelector((state) => state.shoppingList.items.find((item) => item.id === id));

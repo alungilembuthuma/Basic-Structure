@@ -1,6 +1,7 @@
 // auth.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import shoppingListReducer from './shoppingListSlice';
 
 
 const Auth = () => {

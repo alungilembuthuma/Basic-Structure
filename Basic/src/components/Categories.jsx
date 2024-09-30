@@ -1,21 +1,21 @@
 // components/Categories.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateItem } from '../features/shoppingListSlice';
 
 const Categories = ({ id }) => {
   const item = useSelector((state) => state.shoppingList.items.find((item) => item.id === id));
   const dispatch = useDispatch();
 
-  const handleUpdateItem = (item) => {
-    dispatch(updateItem(item));
+  const handleUpdateItem = (event) => {
+    event.preventDefault(); // Add this line to prevent the default form submission behavior
+    dispatch(updateItem({ ...item, category: event.target.category.value }));
   };
 
   return (
     <div>
       <h1>Categories</h1>
       <p>Current Category: {item.category}</p>
-      <form onSubmit={(e) => handleUpdateItem({ ...item, category: e.target.category.value })}>
+      <form onSubmit={handleUpdateItem}>
         <select name="category">
           <option value="Groceries">Groceries</option>
           <option value="Household">Household</option>
