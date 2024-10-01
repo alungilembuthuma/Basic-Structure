@@ -25,6 +25,7 @@ function App() {
             <Route path="/Register" element={<Register />} />
             <Route path="/item-details/:id" element={<ItemDetails />} />
             <Route path="/LoginPage" element={<LoginPage />} />
+            <Route path="/ShoppingList" element={<ShoppingList />} />
           </Routes>
         </div>
       </BrowserRouter>

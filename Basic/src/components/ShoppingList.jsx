@@ -23,7 +23,7 @@ const ShoppingList = () => {
   };
 
   return (
-    <div>
+    <div style={{backgroundColor: "#F7B1C9", width: "100vw", height: "100vh", margin: "0", position: "fixed" }}>
       <h1>Shopping List</h1>
       <ul>
         {items.map((item) => (

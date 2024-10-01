@@ -11,22 +11,20 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/users', {
-        method: 'GET',
+      const response = await fetch('http://localhost:3001/users/login', {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
       });
-      const users = await response.json();
-      const user = users.find((user) => user.username === username && user.password === password);
+      const user = await response.json();
       if (user) {
         alert('User logged in successfully!');
-        navigate(`/RecipePage/${user.id}`);
+        navigate(`/ShoppingList`); // Changed to ShoppingList
       } else {
         setError('User not found');
-        navigate('/RecipePage'); 
       }
     } catch (error) {
       setError('Error logging in');
-      navigate('/RecipePage'); 
     }
   };
 
@@ -60,7 +58,7 @@ export default function LoginPage() {
         Don't have an account? <Link to="/Register">Register here</Link>
       </p>
       <div style={{marginTop:"7%"}}>
-      <Footer />
+        <Footer />
       </div>
     </div>
   );
