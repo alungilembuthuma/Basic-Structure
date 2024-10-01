@@ -11,7 +11,7 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/users/login', {
+      const response = await fetch('/api/login', { // Changed to '/api/login'
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -19,7 +19,7 @@ export default function LoginPage() {
       const user = await response.json();
       if (user) {
         alert('User logged in successfully!');
-        navigate(`/ShoppingList`); // Changed to ShoppingList
+        navigate('/ShoppingList'); // Changed to '/ShoppingList'
       } else {
         setError('User not found');
       }
