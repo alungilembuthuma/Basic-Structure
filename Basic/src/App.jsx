@@ -11,21 +11,23 @@ import MultipleLists from './components/MultipleLists';
 import ShareList from './components/ShareList';
 import List from './components/List';
 import LandingPage from './Pages/LandingPage';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div className="App" style={{ backgroundColor: "#48cbff", height: "100vh" }}>
+        <div className="App" >
+         <LandingPage/>
           <Routes>
             <Route exact path="/" page={LandingPage} />
-            <Route path="/shopping-list" component={ShoppingList} />
+            {/* <Route path="/shopping-list" component={ShoppingList} />
             <Route path="/item-details/:id" component={ItemDetails} />
             <Route path="/categories" component={Categories} />
             <Route path="/search" component={Search} />
             <Route path="/sorting-filtering" component={SortingFiltering} />
             <Route path="/multiple-lists" component={MultipleLists} />
-            <Route path="/share-list" component={ShareList} />
+            <Route path="/share-list" component={ShareList} /> */}
           </Routes>
         </div>
       </BrowserRouter>

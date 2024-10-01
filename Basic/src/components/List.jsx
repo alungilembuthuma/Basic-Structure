@@ -66,7 +66,6 @@ export default function List() {
 
   return (
     <div className="login-container" style={{
-      backgroundColor: "#48cbff",
       backgroundRepeat: "no-repeat",
       backgroundSize: "100%",
       width: "100%",
