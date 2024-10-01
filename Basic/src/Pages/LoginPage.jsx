@@ -31,7 +31,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className='Main' style={{ backgroundColor: "#79c1c2", width: "100vw", height: "100vh", margin: "0", position: "fixed" }}>
+    <div className='Main' style={{ backgroundColor: "#F7B1C9", width: "100vw", height: "100vh", margin: "0", position: "fixed" }}>
       <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "38%" }}>Login</h1>
       <label style={{ fontFamily: 'cursive', fontSize: "40px", marginTop: "2%", marginLeft: "9%" }}>Username:</label>
       <input

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from './Footer';
+import Footer from '../components/Footer';
 
 export default function Register() {
   const [username, setUsername] = useState('');
@@ -27,7 +27,7 @@ export default function Register() {
   };
 
   return (
-    <div className="Main" style={{ backgroundColor: "#79c1c2", width: "100vw", height: "100vh", margin: "0", position: "fixed" }}>
+    <div className="Main" style={{ backgroundColor: "#F7B1C9", width: "100vw", height: "100vh", margin: "0", position: "fixed" }}>
       <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "38%" }}>Register</h1>
       <div style={{ width: '800px', margin: '0 auto', padding: '20px' }}>
         <label style={{ fontFamily: 'cursive', fontSize: "40px" }}>Username:</label>
@@ -53,7 +53,7 @@ export default function Register() {
           Register
         </button>
         <p style={{ fontFamily: "cursive", fontSize: "20px", textAlign: "center", marginTop: "20px" }}>
-          Already have an account? <Link to="/Login.jsx">Login here id already </Link>
+          Already have an account? <Link to="/LoginPage">Login here if already have an account </Link>
         </p>
       </div>
       <Footer />

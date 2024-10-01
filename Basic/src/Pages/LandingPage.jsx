@@ -12,9 +12,11 @@ export default function LandingPage() {
       position: "fixed"
     }}>
        <Navigation/>
-      <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "33%" }}>Welcome</h1>
+     <div style={{marginTop:"-3%"}}>
+     <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "33%" }}>Welcome</h1>
       <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "33%" }}>To Your</h1>
       <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "25%" }}>Shopping List</h1>
+     </div>
       <Footer/>
     </div>
   )
