@@ -1,51 +1,53 @@
-// components/ShoppingList.js
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addItem, removeItem, updateItem } from '../components/shoppingListSlice';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addItem, removeItem, updateItem } from "./shoppingListSlice";
 
-const ShoppingList = () => {
-  const items = useSelector((state) => state.shoppingList.items);
+function ShoppingList() {
   const dispatch = useDispatch();
-  const [itemName, setItemName] = useState('');
+  const shoppingList = useSelector((state) => state.shoppingList);
 
-  const handleAddItem = (event) => {
-    event.preventDefault();
-    dispatch(addItem({ name: itemName, id: Date.now() }));
-    setItemName('');
+  const [newItem, setNewItem] = useState("");
+
+  const handleAddItem = () => {
+    dispatch(addItem(newItem));
+    setNewItem("");
   };
 
-  const handleRemoveItem = (id) => {
-    dispatch(removeItem(id));
+  const handleRemoveItem = (index) => {
+    dispatch(removeItem(index));
   };
 
-  const handleUpdateItem = (item) => {
-    dispatch(updateItem(item));
+  const handleUpdateItem = (index, value) => {
+    dispatch(updateItem(index, value));
   };
 
   return (
-    <div style={{backgroundColor: "#F7B1C9", width: "100vw", height: "100vh", margin: "0", position: "fixed" }}>
-      <h1>Shopping List</h1>
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            {item.name}
-            <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
-            <button onClick={() => handleUpdateItem(item)}>Update</button>
-          </li>
-        ))}
-      </ul>
-      <form onSubmit={handleAddItem}>
+    <div style={{ backgroundColor: "#F7B1C9", width: "100vw", height: "100vh", margin: "0", position: "fixed" }}>
+      <h1 style={{ fontFamily: "sans", fontSize: "70px", marginLeft: "33%" }}>Shopping List</h1>
+      {shoppingList && shoppingList.map((item, index) => (
+        <div key={index} style={{ margin: "20px", padding: "20px", border: "1px solid #ccc", borderRadius: "10px", width: "300px" }}>
+          <h2>{item}</h2>
+          <input
+            type="text"
+            value={item}
+            onChange={(e) => handleUpdateItem(index, e.target.value)}
+            style={{ width: "100%", padding: "10px", margin: "10px 0" }}
+          />
+          <button onClick={() => handleRemoveItem(index)}>Remove</button>
+        </div>
+      ))}
+      <div style={{ margin: "20px", padding: "20px", border: "1px solid #ccc", borderRadius: "10px", width: "300px" }}>
         <input
           type="text"
-          name="name"
-          value={itemName}
-          placeholder="Add item"
-          onChange={(event) => setItemName(event.target.value)}
+          value={newItem}
+          onChange={(e) => setNewItem(e.target.value)}
+          placeholder="Add new item"
+          style={{ width: "100%", padding: "10px", margin: "10px 0" }}
         />
-        <button type="submit">Add</button>
-      </form>
+        <button onClick={handleAddItem}>Add Item</button>
+      </div>
     </div>
   );
-};
+}
 
 export default ShoppingList;

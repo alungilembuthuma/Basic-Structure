@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Cart from '../assets/shopping_cart-removebg-preview.png'
 import Footer from '../components/Footer'
+import ShoppingList from '../components/ShoppingList';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -20,7 +22,7 @@ export default function LoginPage() {
 
   return (
     <div className='Main' style={{ backgroundColor: "#F7B1C9", width: "100vw", height: "100vh", margin: "0", position: "fixed" }}>
-      <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "38%" }}>Login</h1>
+      <h1 style={{ fontFamily: "sans", fontSize: "100px", marginLeft: "38%" }}>Login<img src={Cart} style={{width:'100px', marginTop:"4%"}}/></h1>
       <label style={{ fontFamily: 'cursive', fontSize: "40px", marginTop: "2%", marginLeft: "9%" }}>Username:</label>
       <input
         style={{ border: "3px solid black", width: '800px', height: "50px", marginLeft: '11%', fontSize: "30px", position: "fixed" }}
@@ -47,7 +49,7 @@ export default function LoginPage() {
       <p style={{ fontFamily: "cursive", fontSize: "20px", marginLeft: "35%" }}>
         Don't have an account? <Link to="/Register">Register here</Link>
       </p>
-      <div style={{marginTop:"7%"}}>
+      <div style={{marginTop:"3%"}}>
         <Footer />
       </div>
     </div>
