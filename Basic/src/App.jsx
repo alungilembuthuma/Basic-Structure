@@ -7,19 +7,19 @@ import ItemDetails from './components/ItemDetails';
 import LandingPage from './Pages/LandingPage';
 import LoginPage from './Pages/LoginPage';
 import Register from './Pages/Register';
+import ShoppingListForm from './components/ShoppingForm';
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <div className="App" >
-        
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/item-details/:id" element={<ItemDetails />} />
             <Route path="/LoginPage" element={<LoginPage />} />
-            <Route path="/ShoppingList" element={<ShoppingList />} />
+            <Route path="/ShoppingForm" element={<ShoppingListForm />} />
           </Routes>
         </div>
       </BrowserRouter>

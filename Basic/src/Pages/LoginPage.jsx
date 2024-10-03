@@ -16,7 +16,7 @@ export default function LoginPage() {
       setError('Username and password are required');
     } else {
       // Simulate a successful login
-      navigate('/ShoppingList'); // Navigate to shopping list page
+      navigate('/ShoppingForm'); // Navigate to shopping list page
     }
   };
 

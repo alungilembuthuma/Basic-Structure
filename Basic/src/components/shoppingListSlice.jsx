@@ -1,4 +1,4 @@
-
+// shoppingListSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 const shoppingListSlice = createSlice({
   name: 'shoppingList', // Name of the slice
   initialState, // Initial state
-  reducers: { 
+  reducers: {
     addItem(state, action) {
       state.items.push(action.payload); // Adds an item to the items array
     },
@@ -20,12 +20,15 @@ const shoppingListSlice = createSlice({
       if (index !== -1) {
         state.items[index] = action.payload; // Updates the item if found
       }
-    }
+    },
+    displayItems(state) {
+      console.log(state.items); // Displays all items in the console
+    },
   },
 });
 
 // Exporting actions for use in components
-export const { addItem, removeItem, updateItem } = shoppingListSlice.actions;
+export const { addItem, deleteItem, updateItem, displayItems } = shoppingListSlice.actions;
 
 // Exporting the reducer to be used in the store
 export default shoppingListSlice.reducer;
