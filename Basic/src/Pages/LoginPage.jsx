@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer'
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -10,21 +10,11 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/api/login', { // Changed to '/api/login'
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
-      const user = await response.json();
-      if (user) {
-        alert('User logged in successfully!');
-        navigate('/ShoppingList'); // Changed to '/ShoppingList'
-      } else {
-        setError('User not found');
-      }
-    } catch (error) {
-      setError('Error logging in');
+    if (username.trim() === '' || password.trim() === '') {
+      setError('Username and password are required');
+    } else {
+      // Simulate a successful login
+      navigate('/ShoppingList'); // Navigate to shopping list page
     }
   };
 

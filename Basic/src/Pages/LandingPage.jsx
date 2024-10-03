@@ -13,11 +13,14 @@ export default function LandingPage() {
     }}>
        <Navigation/>
      <div style={{marginTop:"-3%"}}>
-     <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "33%" }}>Welcome</h1>
-      <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "33%" }}>To Your</h1>
-      <h1 style={{ fontFamily: "cursive", fontSize: "100px", marginLeft: "25%" }}>Shopping List</h1>
+     <h1 style={{ fontFamily: "sans", fontSize: "70px", marginLeft: "13%" }}>Welcome</h1>
+      <h1 style={{ fontFamily: "sans", fontSize: "70px", marginLeft: "13%" }}>To Your</h1>
+      <h1 style={{ fontFamily: "sans", fontSize: "70px", marginLeft: "7%" }}>Shopping List</h1>
      </div>
-      <Footer/>
+     <div style={{marginTop:"21%"}}>
+     <Footer/>
+     </div>
+     
     </div>
   )
 }
