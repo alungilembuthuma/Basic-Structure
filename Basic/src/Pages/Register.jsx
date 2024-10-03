@@ -6,9 +6,18 @@ import Cart from '../assets/shopping_cart-removebg-preview.png'
 export default function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Input validation
+    if (username.trim() === '' || password.trim() === '') {
+      setError('Please enter a valid username and password');
+      return;
+    }
+
     const user = { username, password };
 
     fetch('http://localhost:3001/users', {
@@ -18,13 +27,15 @@ export default function Register() {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert('User successfully registered!');
-        console.log(data);
+        setMessage('User  successfully registered!');
+        setUsername('');
+        setPassword('');
+        setError(null);
       })
-      .catch((error) => console.error('Error:', error));
-
-    setUsername('');
-    setPassword('');
+      .catch((error) => {
+        setError('Error: User not registered!');
+        console.error('Error:', error);
+      });
   };
 
   return (
@@ -53,12 +64,22 @@ export default function Register() {
         >
           Register
         </button>
+        {message && (
+          <p style={{ fontFamily: "cursive", fontSize: "20px", textAlign: "center", marginTop: "20px", color: message.includes('Error') ? 'red' : 'green' }}>
+            {message}
+          </p>
+        )}
+        {error && (
+          <p style={{ fontFamily: "cursive", fontSize: "20px", textAlign: "center", marginTop: "20px", color: 'red' }}>
+            {error}
+          </p>
+        )}
         <p style={{ fontFamily: "cursive", fontSize: "20px", textAlign: "center", marginTop: "20px" }}>
           Already have an account? <Link to="/LoginPage">Login here if already have an account </Link>
         </p>
       </div>
-      <div style={{marginTop:"-2%"}}>
-      <Footer />
+      <div style={{marginTop:"-%"}}>
+        <Footer />
       </div>
     </div>
   );
